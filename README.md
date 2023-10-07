@@ -26,9 +26,5 @@
 	6. Garbage collection
 	7. GIL
 7.  File handling
-	1. 
 8. Exception handling
-	1. 
 9. Logging
-	1. 
-	
