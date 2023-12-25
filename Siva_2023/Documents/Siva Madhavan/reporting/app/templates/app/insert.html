@@ -1,0 +1,43 @@
+{% extends "app/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.first_name|as_crispy_field }}
+    {{ form.last_name|as_crispy_field}}
+    {{ form.mobile_number|as_crispy_field }}
+    {{ form.email|as_crispy_field }}
+    <div class="row">
+        <div class="col-md-10">
+            {{ form.Insurance|as_crispy_field }}
+        </div>
+        <div class="col-md-2">
+            <a href="{% url 'module_insert' %}" class="btn btn-outline-success">
+                <i class="fas fa-plus">New</i>
+            </a>
+        </div>
+    </div>
+     <div class="row">
+        <div class="col-md-10">
+            {{ form.Medical_conditions|as_crispy_field }}
+        </div>
+        <div class="col-md-2">
+            <a href="{% url 'module2_insert' %}" class="btn btn-outline-success">
+                <i class="fas fa-plus">New</i>
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <button type="submit" class="btn btn-success btn-block btn-lg"><i class="fas fa-cloud-upload-alt"></i>&nbsp;&nbsp;</i>Submit</button>
+        </div>
+        <div class="col-md-4">
+           <a href="{% url 'patient_list' %}" class="btn btn-secondary btn-block btn-lg">
+               <i class="fas fa-list-ul">&nbsp;&nbsp;</i>View List
+           </a>
+        </div>
+    </div>
+</form>
+{% endblock content %}

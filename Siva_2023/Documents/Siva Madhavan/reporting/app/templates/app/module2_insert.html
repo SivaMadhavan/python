@@ -1,0 +1,33 @@
+{% extends "app/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container" align="center" xmlns="http://www.w3.org/1999/html">
+    <h3><em> Medical Conditions </em></h3>
+</div>
+
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-md-8">
+        {{form.medicalprobs|as_crispy_field}}
+        </div>
+        <div class="col-md-4">
+                <a href="{% url 'mp_insert' %}" class="btn btn-outline-success">
+                    <i class="fas fa-plus">med prob</i>
+                </a>
+        </div>
+    </div>
+    {{form.ICD_code|as_crispy_field}}
+    <div class="row">
+        <div class="col-md-8">
+            <button type="submit" class="btn btn-success btn-block btn-lg"><i class="fas fa-cloud-upload-alt"></i>&nbsp;&nbsp;</i>Submit</button>
+        </div>
+        <div class="col-md-4">
+           <a href="{% url 'module2_list' %}" class="btn btn-secondary btn-block btn-lg">
+               <i class="fas fa-list-ul">&nbsp;&nbsp;</i>View List
+           </a>
+        </div>
+    </div>
+</form>
+{% endblock content %}

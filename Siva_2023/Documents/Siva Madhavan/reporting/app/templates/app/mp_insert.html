@@ -1,0 +1,23 @@
+{% extends "app/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container" align="center">
+    <h3><em> Medical problem </em></h3>
+</div>
+
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form|crispy}}
+    <div class="row">
+        <div class="col-md-8">
+            <button type="submit" class="btn btn-success btn-block btn-lg"><i class="fas fa-cloud-upload-alt"></i>&nbsp;&nbsp;</i>Submit</button>
+        </div>
+        <div class="col-md-4">
+           <a href="{% url 'mp_list' %}" class="btn btn-secondary btn-block btn-lg">
+               <i class="fas fa-list-ul">&nbsp;&nbsp;</i>View List
+           </a>
+        </div>
+    </div>
+</form>
+{% endblock content %}

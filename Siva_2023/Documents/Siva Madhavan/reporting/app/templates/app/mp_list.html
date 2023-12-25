@@ -1,0 +1,38 @@
+{% extends "app/base.html" %}
+
+{% block content %}
+
+<table class="table table-borderless">
+    <thead class="border-bottom font-weightbold">
+        <tr>
+            <td>Serial No </td>
+            <td>Medical Problem</td>
+            <td>
+                <a href="{% url 'mp_insert' %}" class="btn btn-outline-success">
+                <i class="fas fa-plus">Add Medical Condition</i>
+                </a>
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for c in Mps %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{c.name}}</td>
+
+            <td>
+                <a href="{% url 'mp_update' c.uuid %}" class="btn text-secondary px-0">
+                    <i class="far fa-edit fa-lg"></i>&nbsp;
+                </a>
+                <a href="{% url 'mp_delete' c.uuid %}" class="btn text-secondary px-0">
+                    <i class="far fa-trash-alt fa-lg text-danger float-right"></i>
+                </a>
+
+            </td>
+
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock content %}

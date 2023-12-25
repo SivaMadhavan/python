@@ -1,0 +1,42 @@
+{% extends "app/base.html" %}
+
+{% block content %}
+
+<table class="table table-borderless">
+    <thead class="border-bottom font-weightbold">
+        <tr>
+            <td>IndividualID</td>
+            <td>InsuranceName</td>
+            <td>Claim</td>
+            <td>Date</td>
+            <td>
+                <a href="{% url 'module_insert' %}" class="btn btn-outline-success">
+                <i class="fas fa-plus">Add Module</i>
+                </a>
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for m in Module3s %}
+        <tr>
+            <td>{{m.individualID}}</td>
+            <td>{{m.insurance_name}}</td>
+            <td>{{m.claim}}</td>
+            <td>{{m.effective_date}}</td>
+
+            <td>
+                <a href="{% url 'module_update' m.uuid %}" class="btn text-secondary px-0">
+                    <i class="far fa-edit fa-lg"></i>&nbsp; 
+                </a>
+                <a href="{% url 'module_delete' m.uuid %}" class="btn text-secondary px-0">
+                    <i class="far fa-trash-alt fa-lg text-danger float-right"></i>
+                </a>
+                
+            </td>
+
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock content %}
